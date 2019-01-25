@@ -34,15 +34,16 @@ import com.jd.open.api.sdk.response.etms.LdopWaybillReceiveResponse;
 public class JdApiService {
 
 	private Logger logger = LoggerFactory.getLogger(JdApiService.class);
-	
+	/*
 	// 场景一： 无服务器版(只配送，不入仓，使用此种方式，在浏览器调用，使用JOS申请过的账号才能成功获得token)
 	String getToken = "https://oauth.jd.com/oauth/authorize?response_type=code&client_id=xxx&redirect_uri=urn:ietf:wg:oauth:2.0:oob&state=1212";
 	String resultToken = "xxx";	// 测试版24H有效，授权版1y有效
 	
 	// 场景二： 有服务器版(入仓)
 	String getCodeThenGetToken = "https://oauth.jd.com/oauth/authorize?response_type=code&client_id=xxx&redirect_uri=www.xxx.com&state=1212";
+	*/
 	
-
+	/*
 	@Value("${jd_appid}")
 	private String jd_appid;		// appKey
 	@Value("${jd_secret}")
@@ -59,7 +60,7 @@ public class JdApiService {
 	private Double weight;			// 重量
 	@Value("${vloumn}")
 	private Double vloumn;			// 体积
-	
+	*/
 
 	// 签名方式为 md5(appsecret + key+ value .... key +
 	// value+appsecret)然后转大写字母，其中key、value对是除签名所有请求参数按key做的升序排列，value无需编码。
