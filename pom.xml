@@ -24,6 +24,20 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-tomcat</artifactId>
+				</exclusion>
+				<exclusion>
+					<artifactId>hibernate-validator</artifactId>
+					<groupId>org.hibernate</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-undertow</artifactId>
 		</dependency>
 		<!-- web项目必备 - end -->
 
@@ -36,23 +50,18 @@
 		<!-- 单元测试必备 - end -->
 		
 		<!-- DB - begin -->
-		<!-- windows 快速小型本地数据库 -->
-		<dependency>
-	        <groupId>org.xerial</groupId>
-	        <artifactId>sqlite-jdbc</artifactId>
-	    </dependency>
 	    <!-- HikariCP高性能数据库连接池 -->
         <dependency>
 			<groupId>com.zaxxer</groupId>
 			<artifactId>HikariCP-java7</artifactId>
 			<version>2.4.9</version>
 		</dependency>
-		<!-- mybatis数据库框架 
+		<!-- mybatis数据库框架 -->
 		<dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
             <version>1.2.0</version>
-        </dependency>-->
+        </dependency>
         <!-- DB - end -->
         
         <!-- 热部署 - begin -->
@@ -82,29 +91,8 @@
 		</dependency>
 		<!-- logback - end -->
 		
-		<!-- 微信支付SDK - begin -->
-		<dependency>
-			<groupId>com.github.wxpay</groupId>
-			<artifactId>wxpay-sdk</artifactId>
-			<version>0.0.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.httpcomponents</groupId>
-			<artifactId>httpclient</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.google.zxing</groupId>
-			<artifactId>core</artifactId>
-			<version>3.0.0</version>
-		</dependency>
-		<dependency>
-			<groupId>com.google.zxing</groupId>
-			<artifactId>javase</artifactId>
-			<version>3.0.0</version>
-		</dependency>
-		<!-- 微信支付SDK - end -->
-
-		<!-- 导入京东sdk，本地jar仓库 - begin -->
+		<!-- 快递SDK - begin -->
+		<!-- 京东sdk，本地jar仓库 - begin -->
 		<dependency>
 			<groupId>jingdong</groupId>
 			<artifactId>jd-sdk</artifactId>
@@ -121,6 +109,31 @@
 			<version>1.9.13</version>
 		</dependency>
 		<!-- 导入京东sdk，本地jar仓库 - end -->
+		
+		<!-- 导入顺丰sdk，本地jar仓库 - begin -->
+		<dependency>
+			<groupId>shunfeng</groupId>
+			<artifactId>sf-sdk</artifactId>
+			<version>1.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.dom4j</groupId>
+			<artifactId>dom4j</artifactId>
+			<version>2.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jdom</groupId>
+			<artifactId>jdom</artifactId>
+			<version>2.0.2</version>
+		</dependency>
+		<!-- 导入顺丰sdk，本地jar仓库 - end -->
+		<!-- 快递SDK - end -->
+		
+		<!-- base64的简单编码器和解码器 -->
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+		</dependency>
 		
 		<!-- 阿里json -->
 		<dependency>

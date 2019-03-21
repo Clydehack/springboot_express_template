@@ -1,4 +1,4 @@
-package com.example.demo.intergration.model;
+package com.ant.ie.model;
 
 /**
  * 根据快递单号查询到的单个快递信息，通常物流信息对象是 - List<ExpressTrace>
@@ -6,6 +6,7 @@ package com.example.demo.intergration.model;
 public class ExpressTrace {
 	
 	private String opeTitle;	// 操作标题
+	private String opeAddress;	// 操作地点
 	private String opeRemark;	// 操作详情
 	private String opeName;		// 操作人姓名
 	private String opeTime;		// 操作时间
@@ -54,5 +55,11 @@ public class ExpressTrace {
 	}
 	public void setCourierTel(String courierTel) {
 		this.courierTel = courierTel;
+	}
+	public String getOpeAddress() {
+		return opeAddress;
+	}
+	public void setOpeAddress(String opeAddress) {
+		this.opeAddress = opeAddress;
 	}
 }
