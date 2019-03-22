@@ -1,6 +1,5 @@
 package com.ant.ie.intergration;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -20,13 +19,13 @@ import com.ant.ie.utils.JacksonUtil;
 import com.ant.ie.utils.StringUtil;
 
 /**
- * 快递业务聚合入口
+ * 快递业务聚合层
  */
 @RestController
 @RequestMapping("/express")
-public class IntergrationExpressController {
+public class ExpressFacade {
 
-	private Logger logger = LoggerFactory.getLogger(IntergrationExpressController.class);
+	private Logger logger = LoggerFactory.getLogger(ExpressFacade.class);
 
 	/** 跨域访问 */
 	private void setHeader(HttpServletResponse response) {
@@ -50,7 +49,7 @@ public class IntergrationExpressController {
 			Map<String, String> map = JacksonUtil.jsonToMap(parameter);
 			if (StringUtil.isNull(map.get("userId"))) {throw new InvokeException("1001", E.E1001("userId"));}
 
-			String orderId = request.getParameter("orderId"); 					// 订单号
+			/*String orderId = request.getParameter("orderId"); 					// 订单号
 			String pickUpStartTime = request.getParameter("pickUpStartTime"); 	// 预约取件开始时间
 			String pickUpEndTime = request.getParameter("pickUpEndTime"); 		// 预约取件结束时间
 			String senderName = request.getParameter("senderName"); 			// 寄件人姓名
@@ -59,7 +58,7 @@ public class IntergrationExpressController {
 			String receiveName = request.getParameter("receiveName"); 			// 收件人名称
 			String receiveAddress = request.getParameter("receiveAddress"); 	// 收件人地址
 			String receiveMobile = request.getParameter("receiveMobile"); 		// 收件人手机号(收件人电话、手机至少有一个不为空)
-			
+*/			
 			result = JacksonUtil.convertCommonJsonString("0", "已开始下单", null, "data", map);
 		} catch (Exception e) {
 			logger.error(e.getMessage());
@@ -78,10 +77,8 @@ public class IntergrationExpressController {
 			String parameter = request.getParameter("parameter");
 			Map<String, String> map = JacksonUtil.jsonToMap(parameter);
 			if (StringUtil.isNull(map.get("userId"))) {throw new InvokeException("1001", E.E1001("userId"));}
-			String deliveryId = request.getParameter("deliveryId");
-			String interceptReason = request.getParameter("interceptReason");
-			
-			Map<String ,String> map = new HashMap<>();
+			/*String deliveryId = request.getParameter("deliveryId");
+			String interceptReason = request.getParameter("interceptReason");*/
 			
 			result = JacksonUtil.convertCommonJsonString("0", "已开始拦截", null, "data", map);
 		} catch (Exception e) {
@@ -101,7 +98,7 @@ public class IntergrationExpressController {
 			String parameter = request.getParameter("parameter");
 			Map<String, String> map = JacksonUtil.jsonToMap(parameter);
 			if (StringUtil.isNull(map.get("waybillCode"))) 	{throw new InvokeException("1001", E.E1001("waybillCode"));}
-			String waybillCode = request.getParameter("waybillCode");
+//			String waybillCode = request.getParameter("waybillCode");
 
 			List<ExpressTrace> list = null;//expressService.queryExpress(waybillCode);
 			
